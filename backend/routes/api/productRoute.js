@@ -61,3 +61,9 @@ router.delete('/:id', (req,res)=>{
 })
 
 module.exports = router;
+
+const backendClusterIP = '10.107.82.31 ';
+const backendPort = '4000'; // The port where your backend is exposed
+
+// Construct the backend URL
+const backendURL = `http://${backendClusterIP}:${backendPort}/api/products`;

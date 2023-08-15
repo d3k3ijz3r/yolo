@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mongo
+spec:
+  serviceName: mongo
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongo
+  template:
+    metadata:
+      labels:
+        app: mongo
+    spec:
+      containers:
+      - name: mongo
+        image: d3k3ijz3r/yolo_dekeijzer:v1.2
+        ports:
+        - containerPort: 27017
+        envFrom:
+        - configMapRef:
+            name: mongo-config

@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: d3k3ijz3r/yolo_dekeijzer:v1.0
+        resources:
+          limits:
+            memory: 512Mi
+            cpu: "1" 
+          requests:
+            memory: 256Mi
+            cpu: "0.2"

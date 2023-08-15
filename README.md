@@ -9,7 +9,7 @@ Make sure that you have the following installed:
 ## Navigate to the k8s Folder 
  `cd ~/yolo/k8s`
 
-## run the neccessary yaml files on each separte directory : 
+# Run the neccessary yaml files on each separte directory : 
 
 ### database folder :
 `kubectl apply -f mongo-statefulset.yaml`
@@ -24,10 +24,10 @@ Make sure that you have the following installed:
 ### nginx folder :
 `kubectl apply -f nginx-config.yml`
 
-### To check if pods are up and running use 
+## To check if pods are up and running use 
 `kubectl get pods`
 
-### To check if services are up and running use
+## To check if services are up and running use
 `kubectl get services`
 
 # DONE BY: 

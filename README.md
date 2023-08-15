@@ -2,22 +2,34 @@
 Make sure that you have the following installed:
 - [node](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-18-04) 
 - npm 
-- [MongoDB](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/) and start the mongodb service with `sudo service mongod start`
+- [MongoDB](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/) 
+- [Minikube](https://minikube.sigs.k8s.io/docs/start/)
+- [Docker](https://docs.docker.com/engine/install/ubuntu/)
 
-## Navigate to the Client Folder 
- `cd client`
+## Navigate to the k8s Folder 
+ `cd ~/yolo/k8s`
 
-## Run the folllowing command to install the dependencies 
- `npm install`
+## run the neccessary yaml files on each separte directory : 
 
-## Run the folllowing to start the app
- `npm start`
+### database folder :
+`kubectl apply -f mongo-statefulset.yaml`
+`kubectl apply -f persistent-volume.yaml`
+`kubectl apply -f persistent-volume-claim.yaml`
 
-## Open a new terminal and run the same commands in the backend folder
- `cd ../backend`
+### application folder :
+`kubectl apply -f backend.yaml & frontend.yaml`
+`kubectl apply -f service-backend.yaml & service-frontend.yaml` 
+`kubectl apply -f mongo-config.yaml & backend-config.yaml`
 
- `npm install`
+### nginx folder :
+`kubectl apply -f nginx-config.yml`
 
- `npm start`
+### To check if pods are up and running use 
+`kubectl get pods`
 
- ### Go ahead a nd add a product (note that the price field only takes a numeric input)
+### To check if services are up and running use
+`kubectl get services`
+
+# DONE BY: 
+Name: George Dekeijzer
+Class: DEVOPS 03
